@@ -1,0 +1,20 @@
+{
+  "name": "Picture Definition",
+  "description": "Adds a button that defines the highlighted text.",
+  "version": "1.2",
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "https://www.googleapis.com/*"
+  ],
+  "browser_action": {
+      "default_title": "Define highlighted word",
+      "default_icon": "print_16x16.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
