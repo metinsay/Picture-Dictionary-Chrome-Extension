@@ -7,10 +7,12 @@
 function query_str(str) {
   const key =    'AIzaSyAXN4fGhe1QQ4IzmHmP3k41GisPZWKZ0AM';
   const oldkey = 'AIzaSyAniCHF1d7zJWlzyW4wOcAw5M-BTOQapPk';
+  const cx = '001108766585115529364:gjel7ctrn4m';
+  const num = 4;
 
-  let query = 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=001108766585115529364:fmf2vab7yci&q='
-  query += str;
-  query += '&%20searchType=%E2%80%9Cimage%E2%80%9D&%20num=1'
+  let query = 'https://www.googleapis.com/customsearch/v1?key=' + key + '&cx=' + cx + '&q='
+  query += str +  '%20clipart';
+  query += '&%20searchType=%E2%80%9Cimage%E2%80%9D&%20num=' + num
   var xhr = new XMLHttpRequest();
 
   xhr.open("GET", query, false);
@@ -18,8 +20,11 @@ function query_str(str) {
 
   var result = JSON.parse(xhr.responseText);
   console.log(result);
-  const url = result.items[0].pagemap.cse_thumbnail[0].src;
-  document.getElementById("img").src = url;
+
+  for (i = 1; i < 5; i++) {
+      const url = result.items[i-1].pagemap.cse_thumbnail[0].src;
+      document.getElementById("img" + String(i)).src = url;
+  }
 
   return query;
 }
