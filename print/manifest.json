@@ -1,7 +1,7 @@
 {
   "name": "Picture Definition",
   "description": "Adds a button that defines the highlighted text.",
-  "version": "1.2",
+  "version": "1.3",
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],
@@ -9,6 +9,7 @@
   },
   "permissions": [
     "activeTab",
+    "contextMenus",
     "https://www.googleapis.com/*"
   ],
   "browser_action": {
@@ -16,5 +17,13 @@
       "default_icon": "print_16x16.png",
       "default_popup": "popup.html"
   },
+  "content_scripts": [
+      {
+          "matches": ["*://*/*"],
+          "js": ["script.js"],
+          "css": ["style.css"]
+      }
+  ],
+
   "manifest_version": 2
 }

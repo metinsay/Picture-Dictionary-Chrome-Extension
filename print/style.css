@@ -1,0 +1,8 @@
+.imgDef {
+    width:100px;
+    height:100px;
+}
+#def {
+    position: absolute;
+    background: white;
+}
